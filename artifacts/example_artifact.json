@@ -1,0 +1,25 @@
+{
+  "artifact": {
+    "artifact_version": "1.0",
+    "records": [
+      {
+        "decision_id": "DEC-0001",
+        "timestamp": "2026-03-06T18:10:00Z",
+        "source_system": "risk_detection_model",
+        "decision_output": "anomaly_detected",
+        "confidence_score": 0.92,
+        "recommended_action": "escalate_review"
+      },
+      {
+        "decision_id": "DEC-0002",
+        "timestamp": "2026-03-06T18:12:00Z",
+        "source_system": "routing_optimizer",
+        "decision_output": "reroute_delivery",
+        "confidence_score": 0.87,
+        "recommended_action": "dispatch_update"
+      }
+    ]
+  },
+  "sha256_digest": "fc836c6f66602a32d33bb0991d9f557d9b60bc8daa727101dbdff6109cd75959",
+  "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3cOMSwHrQkxit603iXlT\nXXw4L+A+VbPWsutHQjtxQQ+8XZhXKGNx6ogstCQT4KI/YItiWcK0rUKsLN+eJIyp\nMld6kArUVjh3I8jur9f3UvMhPQnVtKyNMazkcrtMT9dANXliI70wCdw3iNYwdSXq\nI/nAObJNtvMmrNm8gFdOMChNDvkMuKhhzDpGWnGOGEg2y7JhY9+JWj2/jkrrn/ks\nCZRmsMh/aIWIXnA4yP97iRnE5sU5ufLoY8X8USadDlRH566Hrr9AgQLcs1RFH8Fo\nR3Vo5c9htBIVwDz9eyWe6WMR8UJ8NNRiPE/95L+z+u24sM1xmkXWMekzZv15YI40\nEwIDAQAB\n-----END PUBLIC KEY-----\n"
+}

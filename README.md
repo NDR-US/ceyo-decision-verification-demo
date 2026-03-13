@@ -217,7 +217,7 @@ python scripts/generate_artifact.py data/sample_decisions.json
 
 Verify artifact integrity:
 
-python scripts/verify_artifact.py artifacts/example_artifact.json
+python scripts/verify_artifact.py artifacts/example_artifact.json artifacts/example_signature.json
 
 Verification recomputes canonicalization, recalculates the hash, and validates the digital signature.
 
