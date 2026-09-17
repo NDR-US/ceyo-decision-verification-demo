@@ -1,1 +1,1 @@
-cryptography
+ceyo @ git+https://github.com/NDR-US/ceyo-protocol.git@main
