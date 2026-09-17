@@ -1,25 +1,69 @@
 {
-  "artifact": {
-    "artifact_version": "1.0",
-    "records": [
-      {
-        "decision_id": "DEC-0001",
-        "timestamp": "2026-03-06T18:10:00Z",
-        "source_system": "risk_detection_model",
-        "decision_output": "anomaly_detected",
-        "confidence_score": 0.92,
-        "recommended_action": "escalate_review"
-      },
-      {
-        "decision_id": "DEC-0002",
-        "timestamp": "2026-03-06T18:12:00Z",
-        "source_system": "routing_optimizer",
-        "decision_output": "reroute_delivery",
-        "confidence_score": 0.87,
-        "recommended_action": "dispatch_update"
-      }
-    ]
+  "product": "CEYO",
+  "envelope_version": "1.0",
+  "artifact_schema": {
+    "name": "ceyo.artifact",
+    "version": "1.0"
   },
-  "sha256_digest": "fc836c6f66602a32d33bb0991d9f557d9b60bc8daa727101dbdff6109cd75959",
-  "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3cOMSwHrQkxit603iXlT\nXXw4L+A+VbPWsutHQjtxQQ+8XZhXKGNx6ogstCQT4KI/YItiWcK0rUKsLN+eJIyp\nMld6kArUVjh3I8jur9f3UvMhPQnVtKyNMazkcrtMT9dANXliI70wCdw3iNYwdSXq\nI/nAObJNtvMmrNm8gFdOMChNDvkMuKhhzDpGWnGOGEg2y7JhY9+JWj2/jkrrn/ks\nCZRmsMh/aIWIXnA4yP97iRnE5sU5ufLoY8X8USadDlRH566Hrr9AgQLcs1RFH8Fo\nR3Vo5c9htBIVwDz9eyWe6WMR8UJ8NNRiPE/95L+z+u24sM1xmkXWMekzZv15YI40\nEwIDAQAB\n-----END PUBLIC KEY-----\n"
+  "artifact_id": "ceyo_art_988a5fb6e12e4d71bbc1a64919",
+  "created_at": "2026-03-06T18:12:30Z",
+  "body": {
+    "event": {
+      "event_id": "demo_batch_001",
+      "type": "decision_batch",
+      "occurred_at": "2026-03-06T18:12:00Z"
+    },
+    "policy": {
+      "id": "demo.capture.minimum",
+      "version": "1.0"
+    },
+    "disclosure_tier": "public-demo",
+    "capture": {
+      "records": [
+        {
+          "decision_id": "DEC-0001",
+          "timestamp": "2026-03-06T18:10:00Z",
+          "source_system": "risk_detection_model",
+          "decision_output": "anomaly_detected",
+          "confidence_score": 0.92,
+          "recommended_action": "escalate_review"
+        },
+        {
+          "decision_id": "DEC-0002",
+          "timestamp": "2026-03-06T18:12:00Z",
+          "source_system": "routing_optimizer",
+          "decision_output": "reroute_delivery",
+          "confidence_score": 0.87,
+          "recommended_action": "dispatch_update"
+        }
+      ]
+    }
+  },
+  "canonicalization": {
+    "scheme": "RFC8785",
+    "version": "1.0",
+    "scope": "body"
+  },
+  "integrity": {
+    "hash": {
+      "alg": "SHA-256",
+      "value_b64u": "2lffkRi5l7l6oXrEiLmse1cdCBExZsTZwczoWLAzh3U",
+      "covers": "canonical(body)"
+    },
+    "sig": {
+      "alg": "ECDSA-P256-SHA256",
+      "format": "DER",
+      "value_b64u": "MEYCIQDB0NMw1QbMeo0fZj9hcz2op3HkuuH4jNKJG6jzwOA2QAIhAL-LbA35eTrJkTRf5D9B-fUMYY4nmo1pRIitetzkEafU",
+      "covers": "canonical(body)"
+    }
+  },
+  "key_reference": {
+    "registry": "demo",
+    "key_id": "demo:p256:001",
+    "public_key_fingerprint": {
+      "alg": "SHA-256",
+      "value_b64u": "nyUOrBn5sEu1R1yKzeI4fffrarv-PI2ODJxFROwzrLY",
+      "covers": "public_key_spki_der"
+    }
+  }
 }
