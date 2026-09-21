@@ -1,1 +1,3 @@
-ceyo @ git+https://github.com/NDR-US/ceyo-protocol.git@main
+# Pin the canonical public v1 reference implementation to an immutable Git commit.
+# Update only after reviewing and testing compatibility with this demo.
+ceyo @ git+https://github.com/NDR-US/ceyo-protocol.git@492b1e4a7fb7c8d680bc9f564fc8268451d6aa05

@@ -97,6 +97,24 @@ ceyo-decision-verification-demo/
 └── license
 ```
 
+## Reproducible public-profile boundary
+
+`requirements.txt` pins the public CEYO Protocol reference implementation to commit
+`492b1e4a7fb7c8d680bc9f564fc8268451d6aa05`. This demonstration intentionally
+uses the existing version-1 **body-only** signature profile. Later Protocol v2
+protected-envelope work does not silently change this example; updating the pin
+requires a reviewed fixture and test update.
+
+The committed artifact and public key are retained as a historical verification
+fixture. The generator below creates a **new** ephemeral key and artifact every
+time it runs; it overwrites the working-copy files under `artifacts/`. Do not
+commit a generated private key, and do not confuse the new output with the
+historical fixture. The CI workflow verifies the committed fixture first, then
+generates a new artifact, verifies it, and checks that body tampering is rejected.
+
+This Git commit pin stabilizes the protocol source revision; transitive Python
+package versions are not fully locked and deployment conformance is not implied.
+
 ## Quick start
 
 Install the canonical CEYO reference implementation and dependencies:
