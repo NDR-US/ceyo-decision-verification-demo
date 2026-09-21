@@ -1,0 +1,39 @@
+name: Canonical protocol demo
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-demo:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5.3.0
+        with:
+          python-version: '3.12'
+      - name: Install pinned canonical protocol
+        run: python -m pip install -r requirements.txt
+      - name: Verify committed public artifact against committed public key
+        run: python scripts/verify_artifact.py artifacts/example_artifact.json artifacts/example_public_key.pem
+      - name: Generate and independently verify an ephemeral artifact
+        run: |
+          python scripts/generate_artifact.py data/sample_decisions.json
+          python scripts/verify_artifact.py artifacts/example_artifact.json artifacts/example_public_key.pem
+      - name: Reject tampered signed body
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          artifact = Path("artifacts/example_artifact.json")
+          data = json.loads(artifact.read_text(encoding="utf-8"))
+          data["body"]["event"]["event_id"] = "TAMPERED_AFTER_SEALING"
+          artifact.write_text(json.dumps(data), encoding="utf-8")
+          PY
+          if python scripts/verify_artifact.py artifacts/example_artifact.json artifacts/example_public_key.pem; then
+            echo "ERROR: tampered artifact was accepted"
+            exit 1
+          fi
